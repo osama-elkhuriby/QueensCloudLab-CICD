@@ -16,7 +16,7 @@ async function connectWithRetry(retries = 10, delay = 3000) {
       console.log('Connected to MongoDB');
       return;
     } catch (err) {
-      console.error(Attempt / failed: );
+      console.error(`Attempt ${i} failed: ${err.message}`);
       if (i === retries) process.exit(1);
       await new Promise(r => setTimeout(r, delay));
     }
@@ -37,5 +37,5 @@ app.get('/tasks', async (req, res) => {
 });
 
 connectWithRetry().then(() => {
-  app.listen(PORT, () => console.log(App running on port ));
+  app.listen(PORT, () => console.log(`App running on port ${PORT}`));
 });
