@@ -29,7 +29,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ec2-user           # use 'ubuntu' if Ubuntu AMI
+          username: ubuntu           # use 'ubuntu' if Ubuntu AMI
           key: ${{ secrets.EC2_KEY }}
           script: |
             cd ~/lab8-cicd
